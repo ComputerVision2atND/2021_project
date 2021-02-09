@@ -18,7 +18,6 @@
 #               ├── 1611708263.2442229.jpg
 #               ├── 1611708263.5862782.jpg
 #               └── 1611708263.9512281.jpg
-# Usage:
 
 import os
 import time
@@ -47,11 +46,11 @@ def main():
 
 def save_frame(frame, filepath, fname):
 
-    os.makedirs(filepath, exist_ok=True)
     fullname = str(os.path.join(filepath, fname))
     if DRY_RUN:
         print(" >>> [ DRY-RUN MODE ] Image NOT saved as {}".format(fullname))
     else:
+        os.makedirs(filepath, exist_ok=True)
         cv2.imwrite(fullname, frame)
         print(" >>> Image saved as {}".format(fullname))
 
